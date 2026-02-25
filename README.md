@@ -37,6 +37,7 @@ sudo apt install libc6:i386 libstdc++6:i386
 
 Recommended layout:
 
+```
 planners/
 │
 ├── madagascar/
@@ -54,6 +55,7 @@ planners/
 │       ├── run_sokoban_blackbox.py
 │       ├── problem5x5_two_boxes.pddl
 │       └── ...
+```
 
 Scripts rely on relative paths.
 Make sure to execute them from the corresponding sokoban directory.
