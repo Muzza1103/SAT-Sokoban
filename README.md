@@ -25,9 +25,11 @@ This project was tested on Ubuntu (WSL2). It may not work on Windows or macOS wi
 
 Blackbox may require 32-bit libraries:
 
+```bash
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt install libc6:i386 libstdc++6:i386
+```
 
 ---
 
@@ -53,8 +55,8 @@ planners/
 │       ├── problem5x5_two_boxes.pddl
 │       └── ...
 
-Scripts rely on relative paths.  
-Run them from inside their respective planner directory.
+Scripts rely on relative paths.
+Make sure to execute them from the corresponding sokoban directory.
 
 ---
 
@@ -89,7 +91,7 @@ Modify if necessary.
 
 ```bash
 cd planners/madagascar/sokoban
-python3 run_sokoban.py problems_with_assigned_goal/problem5x5_two_boxes.pddl
+python3 run_sokoban.py assigned_goal/problem5x5_two_boxes.pddl
 ```
 
 ### Blackbox
@@ -98,3 +100,31 @@ python3 run_sokoban.py problems_with_assigned_goal/problem5x5_two_boxes.pddl
 cd planners/blackbox/sokoban
 python3 run_sokoban_blackbox.py problem5x5_two_boxes.pddl
 ```
+
+## Example Instances
+
+Simple structured instance (5x5 grid, 2 boxes):
+
+```
+P . . . .
+# B # . .
+. . B . .
+. # . . .
+. . . G G
+```
+
+More constrained instance (7x7 grid, 7 boxes):
+
+```
+# # # . . . #
+# G P B . . #
+# # # . B G #
+# G # # B . #
+# . # . G . #
+# B . * B B G
+# . . . G . .
+```
+
+The first instances scale progressively (grid size and number of boxes increase proportionally).
+
+The denser 7x7 instance introduces tighter corridors and stronger box interactions, significantly impacting SAT encoding size and solver performance.
